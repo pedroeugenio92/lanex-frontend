@@ -1,0 +1,112 @@
+.titleCardTable{
+    text-align: center;
+    font-size: 26px;
+    color: #0097de;
+}
+.subtitleCardTable {
+    font-size:17px;
+    text-align: center;
+    color: #7b8d93;
+}
+
+label{
+    color: #0097de;
+    margin-bottom: 0px;
+    font-size: 16px;
+}
+
+input{
+    width: 70%;
+    color: #7b8d93;
+    font-size: 16px;
+}
+
+hr{
+    
+    background-color:  #0097de;
+}
+
+mat-card-content{
+    margin-top: 40px;
+}
+
+.div-obs{
+    margin-left: 13px;
+    margin-top: 16px;
+}
+
+.obs{
+    color: #7b8d93;
+    font-size: 13px;
+    margin-bottom: 0px;
+
+}
+
+mat-card-actions{
+    text-align: center;
+}
+
+.button-finalizar{
+    background-color: #0097de;
+    color: white;
+}
+
+.button-alterar{
+    background-color: white;
+    color: #0097de;
+    border-color: #0097de;
+}
+
+
+.list-procedimento{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.mat-button-toggle-group {
+    outline: none;
+}
+  
+
+.agendamento mat-button-toggle {
+    min-width: 120px;
+    height: 28px;
+    
+}
+
+.agendamento mat-button-toggle-group {
+    right: 0;
+    position: absolute;
+}
+.agendamento .mat-button-toggle-checked {
+    background-color: #3F51B5;
+    color: white;
+ }
+ 
+ ::ng-deep .agendamento .mat-button-toggle-appearance-standard .mat-button-toggle-label-content {
+    line-height: 30px;
+    padding: 0 12px;
+}
+
+.select{
+    color: white;
+    background-color: #0097fa;
+    height: 35px;
+    border-radius: 6px;
+    padding-top: 9px;
+    padding-left: 9px;
+    padding-right: 9px;
+}
+
+::ng-deep .mat-select-value{
+    color: white !important;
+}
+::ng-deep .mat-select-arrow{
+    color: white !important;
+}
+
+.mat-card:not([class*=mat-elevation-z]){
+    box-shadow: 0px 0px !important;
+}

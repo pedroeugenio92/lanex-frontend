@@ -1,0 +1,44 @@
+
+.titleCardTable{
+    text-align: center;
+    font-size: 26px;
+    color: #7b8d93;
+}
+.subtitleCardTable {
+    font-size:17px;
+    text-align: center;
+    color: #0097de;
+}
+
+.label{
+    color: #0097de;
+    font-size: 15px;
+}
+
+/* p{
+    color: #7b8d93;
+    font-size: 15px;
+
+} */
+
+.row{
+    padding: 0px !important;
+}
+
+hr{
+    border-top: 2px solid rgba(0,0,0,.1) !important;
+}
+
+  
+button{
+    height: 35px;
+}
+
+.mat-card-content{
+    margin-top: 40px !important;
+
+}
+
+.mat-card:not([class*=mat-elevation-z]){
+    box-shadow: 0px 0px !important;
+}

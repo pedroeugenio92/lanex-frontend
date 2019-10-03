@@ -1,0 +1,54 @@
+<br>
+<mat-card>
+
+  <div class="div-centro-medico col-12">
+    <p class="titleCardTable">
+      Selecione um centro médico
+    </p>
+
+    <mat-form-field class="col-4">
+      <mat-select class="select" [(ngModel)]="centroMedico">
+        <mat-option *ngFor="let cidade of listaCidades" [value]="cidade.id">
+          {{cidade.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+  </div>
+  <br>
+
+  <div>
+    <mat-form-field class="col-7">
+      <mat-datepicker-toggle PreSuffix [for]="myDatepicker"></mat-datepicker-toggle>
+      <input class="input-date" [(ngModel)]="date" matInput [matDatepicker]="myDatepicker">
+      <mat-datepicker #myDatepicker></mat-datepicker>
+    </mat-form-field>
+
+    <p class="col-2 label-select"> Ordenar por: </p>
+    <mat-form-field class="col-3">
+      <mat-select class="select" [(ngModel)]="selectOrdenar">
+        <mat-option *ngFor="let obj of listaOrdenar" [value]="obj.id">
+          {{obj.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <hr>
+
+    <div class="list-card">
+      <mat-card (click)="proximaEtapa(clinica)" class="card-element" *ngFor="let clinica of listaClinica">
+        <p class="valor">R$ {{clinica.value}}</p>
+        <mat-card-header class="header-card">
+          <span><img src="./../../../../assets/img/person.png"></span>
+        </mat-card-header>
+        <mat-card-content class="content-card">
+          <h4>{{clinica.name}}</h4>
+          <h6>{{clinica.vagas}} Vagas</h6>
+        </mat-card-content>
+      </mat-card>
+
+    </div>
+  </div>
+
+
+
+</mat-card>

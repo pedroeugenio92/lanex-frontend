@@ -1,0 +1,208 @@
+<mat-card>
+  <mat-card-title>
+    <div class="grid-container-titulo">
+      <mat-checkbox class="chkStatus">Agenda Ativa</mat-checkbox>
+      <label class="titulo"> Cadastro de Agenda</label>
+      <button mat-raised-button class="botaoTitulo" (click)="voltar()">Voltar</button>
+    </div>
+  </mat-card-title>
+  <form [formGroup]="formularioCadastroAgenda">
+    <mat-card-content>
+      <div class="grid-container">
+        <div>
+          <mat-form-field class="unidadeDeSaude">
+            <mat-label>Unidade de Saúde</mat-label>
+            <mat-select formControlName="clinica">
+              <mat-option *ngFor="let clinica of clinicaSelect" [value]="clinica.value">
+                {{clinica.label}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="formularioCadastroAgenda.get('clinica').hasError('required')">
+              Campo obrigatório
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="profissional">
+            <mat-label>Profissional</mat-label>
+            <mat-select formControlName="medico">
+              <mat-option *ngFor="let medico of medicoSelect" [value]="medico.value">
+                {{medico.label}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="formularioCadastroAgenda.get('medico').hasError('required')">
+              Campo obrigatório
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="nomeDaAgenda">
+            <input matInput formControlName="nome" autocomplete="off" placeholder="Nome da Agenda">
+            <mat-error *ngIf="formularioCadastroAgenda.get('nome').hasError('required')">
+              Campo obrigatório
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="dataDeValidade">
+            <input matInput formControlName="data_fim" autocomplete="off" placeholder="Data de Validade (opcional)" [textMask]="{mask: dateMask}">
+          </mat-form-field>
+          <mat-form-field class="dataDeInicio">
+            <input matInput formControlName="data_inicio" autocomplete="off" placeholder="Data de Início (opcional)" [textMask]="{mask: dateMask}">
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field class="textAreaObsevacaoDaAgenda">
+            <textarea matInput formControlName="observacao" autocomplete="off" rows="12" cols="50" placeholder="Observações da Agenda"></textarea>
+          </mat-form-field>
+        </div>
+      </div>
+      <div style="margin-top: -0.4%;margin-left:1%;">
+        <label class="labelAdicionarProcedimentosAgenda">Adicione procedimentos a essa agenda.</label> <br>
+        <mat-form-field class="selecionarProcedimentos">
+          <mat-label>Selecionar Procedimentos</mat-label>
+          <mat-select formControlName="procedimentosAgenda" multiple>
+            <mat-option *ngFor="let procedimento of procedimentoSelect" [value]="procedimento.value">
+              {{procedimento.label}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <label class="labelHorarioDeAtendimento">O horário de atendimento do profissional: 
+          <mat-radio-group style="margin-left: 16px;" formControlName="tipoAgenda" >
+            <mat-radio-button class="example-radio-button" labelPosition="before" *ngFor="let option of optionTipoAgenda" [value]="option.value" (change)="selectedAgenda($event)">
+              {{option.label}}
+            </mat-radio-button>
+    
+          </mat-radio-group> 
+        </label>
+      </div>
+      <hr class="hrDiasDeAtendimento">
+      <div *ngIf="formularioCadastroAgenda.controls.tipoAgenda.value == 'F'" class="divAgendaFixa">
+        <span>Configurações de Horários Fixos</span>
+
+        <div class="line-agenda">
+          <mat-form-field>
+            <input matInput placeholder="Hora de Abertura" class="input-horario" autocomplete="off" [textMask]="{mask: hourMask}">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Hora de Fechamento" class="input-horario" autocomplete="off" [textMask]="{mask: hourMask}">
+          </mat-form-field>
+        </div>
+
+        <div class="line-agenda">
+          <mat-form-field>
+            <input type="number" min="0" matInput placeholder="Máximo de Agendamentos" class="input-horario" autocomplete="off">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Tempo Médio entre Agendamentos" autocomplete="off" class="input-horario-large" [textMask]="{mask: hourMask}">
+          </mat-form-field>
+        </div>
+
+        <div class="line-agenda">
+          <mat-form-field>
+            <input type="number" min="0" matInput placeholder="Máximo de Encaixes" class="input-horario" autocomplete="off">
+          </mat-form-field>
+          <mat-form-field>
+            <input type="number" min="0" matInput placeholder="Máximo de Retornos" class="input-horario" autocomplete="off" >
+          </mat-form-field>
+        </div>
+
+        <div class="line-agenda">
+          <mat-form-field>
+            <input type="number" min="0" matInput placeholder="Máximo de Convênios" class="input-horario" autocomplete="off" [textMask]="{mask: hourMask}">
+            <mat-hint align="start"><strong>Máximo de convênios por dia</strong> </mat-hint>
+          </mat-form-field>
+        </div>
+
+      </div>
+      <div *ngIf="formularioCadastroAgenda.controls.tipoAgenda.value == 'V'" class="divAgendaVariavel">
+        <span>Dias de Atendimento</span>
+        
+        <div class="line-agenda-variavel">
+          <mat-checkbox *ngFor="let item of diasHorario" [value]="item.value" (change)="selecionaDiasAtendimento($event)" class="example-margin">
+            {{item.label}}
+          </mat-checkbox>
+        </div>
+
+        <div class="line-agenda-variavel-grid">
+          <mat-card *ngFor="let dia of diaSelecionado" class="card-dias-selecionados">
+            <label class="title-dia-selecionado" style="margin-top: 42px;"><strong>{{dia.label}}</strong></label>
+            <mat-card class="card-dia-selecionado">
+    
+              <mat-form-field class="input-dia-selecionado">
+                <input matInput autocomplete="off" placeholder="Horário inicial" [textMask]="{mask: hourMask}">
+              </mat-form-field>
+    
+              <mat-form-field class="input-dia-selecionado">
+                <input matInput autocomplete="off" placeholder="Horário final" [textMask]="{mask: hourMask}">
+              </mat-form-field>
+    
+              <mat-form-field class="input-dia-selecionado">
+                <input matInput autocomplete="off" placeholder="Máx. de agendas">
+              </mat-form-field>
+    
+              <mat-form-field class="input-dia-selecionado">
+                <input matInput autocomplete="off" placeholder="Máx. de encaixes">
+              </mat-form-field>
+    
+              <mat-form-field class="input-dia-selecionado">
+                <input matInput autocomplete="off" placeholder="Máx. de retornos">
+              </mat-form-field>
+    
+              <mat-form-field class="input-dia-selecionado">
+                <input matInput autocomplete="off" placeholder="Máx. de convênios">
+              </mat-form-field>
+            </mat-card>
+          </mat-card>
+        </div>  
+      </div>
+      <div class="title-bloqueio-agenda">
+        <span>Bloquear horários da agenda</span>
+      </div>
+      <div class="grid-container-bloquear-horarios">
+        <div class="grid-container-columns">
+          <label>De*</label>
+        </div>
+        <div class="grid-container-columns"> 
+          <label>Até*</label>
+        </div>
+        <div class="grid-container-columns">
+          <label class="grid-container-bloquear-horarios-labels">Hr.início*</label>
+        </div>
+        <div class="grid-container-columns">
+          <label class="grid-container-bloquear-horarios-labels">Hr.Fim*</label>
+        </div>
+        <div class="grid-container-columns-obs">
+          <label class="grid-container-bloquear-horarios-labels">Obs. do Bloqueio</label>
+        </div>
+      </div>
+      <div class="grid-container-bloquear-horarios-inputs">
+        <div class="grid-container-columns-input input-de">
+          <mat-form-field class="input-column">
+            <input matInput autocomplete="off" [textMask]="{mask: dateMask}">
+          </mat-form-field>
+        </div>
+        <div class="grid-container-columns-input input-column-field">
+          <mat-form-field class="input-column">
+            <input matInput autocomplete="off" [textMask]="{mask: dateMask}">
+          </mat-form-field>
+        </div>
+        <div class="grid-container-columns-input input-column-field">
+          <mat-form-field class="input-column">
+            <input matInput autocomplete="off">
+          </mat-form-field>
+        </div>
+        <div class="grid-container-columns-input input-column-field">
+          <mat-form-field class="input-column">
+            <input matInput autocomplete="off" [textMask]="{mask: hourMask}">
+          </mat-form-field>
+        </div>
+        <div class="grid-container-columns-input-obs">
+          <mat-form-field class="input-column-obs">
+            <input matInput autocomplete="off">
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-card-content>
+  </form>
+  <mat-card-footer class="grid-container-footer">
+    <button mat-raised-button class="botaoTitulo" (click)="onSubmit()">Salvar</button>
+  </mat-card-footer>
+</mat-card>
+<br>

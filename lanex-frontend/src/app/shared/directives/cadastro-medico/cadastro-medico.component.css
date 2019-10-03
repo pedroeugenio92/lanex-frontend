@@ -1,0 +1,94 @@
+/* card */
+/* .card {
+  width: 80%
+  text-align: center;
+} */
+.titleCard {
+  color: #3F51B5;
+  text-align: center;
+}
+/* linha 1  */
+.nome {
+  width: 30%
+  }
+
+.conselho {
+  padding-left: 5%;
+  width: 15%
+}
+.num-registro {
+  padding-left: 5%;
+  width: 15%
+}
+
+.uf {
+  padding-left: 5%;
+  width: 10%;
+}
+
+.cpf {
+  padding-left: 5%;
+  width: 19%;
+}
+
+/* linha 2  */
+
+.especialidades {
+  width: 30%
+  }
+
+.telefone {
+  padding-left: 5%;
+  width: 20%
+}
+
+.dataDeNascimento {
+  padding-left: 5%;
+  width: 20%;
+}
+
+.sexo {
+  padding-left: 5%;
+  width: 18.9%;
+}
+
+/* linha 3  */
+.funcao {
+  width: 30%
+  }
+
+.convenios {
+  padding-left: 5%;
+  width: 27%
+}
+
+.procedimentos {
+  padding-left: 5%;
+  width: 32%;
+}
+
+
+/* linha  4 */
+.identidade {
+  width: 22%
+  }
+
+.orgaoEmissor {
+  padding-left: 5%;
+  width: 20%
+}
+
+.ufOrgaoEmissor {
+  padding-left: 5%;
+  width: 12%;
+}
+
+.email {
+  padding-left: 5%;
+  width: 35%;
+}
+
+/* footer */
+.footer {
+margin-left: 76%;
+}

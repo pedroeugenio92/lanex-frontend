@@ -1,0 +1,41 @@
+.image-upload{
+  max-width: 136px;
+  max-height: 136px;
+}
+.image-upload > input {
+  visibility:hidden;
+  width:0;
+  height:0
+}
+.image-upload mat-icon{
+  margin-top: 10px;
+}
+.cardPrincipal{
+  width: 950px;
+  margin-top: 3%;
+  margin-left: 2.3%;
+}
+.cardImagemConvenio{
+  width: 210px;
+}
+.cardImagemConvenio mat-card-title{
+  text-align: center;
+}
+.cardImagemConvenio mat-card-header{
+  display: flex;
+  justify-content: center;
+}
+.nomeConvenio {width: 750px;}
+.razaoSocial{width:750px;}
+.checkBoxConvenioAtivo{ margin-left: 2%}
+.title-card{
+  display: flex;
+  justify-content: center;
+}
+.title-card h3{
+  color: #3F51B5;
+}
+.footer{
+  display: flex;
+  justify-content: flex-end;
+}

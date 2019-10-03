@@ -1,0 +1,7 @@
+<div mat-dialog-content>
+  <p>Deseja realmente excluir?</p>
+</div>
+<div mat-dialog-actions class="divBotoes">
+  <button mat-stroked-button (click)="closeDialog()">Não</button>
+  <button mat-raised-button color="warn" [mat-dialog-close]="true">Sim</button>
+</div>

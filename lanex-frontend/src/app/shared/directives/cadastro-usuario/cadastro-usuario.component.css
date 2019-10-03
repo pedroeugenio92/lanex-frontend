@@ -1,0 +1,52 @@
+.cardPrincipal{
+    width: 950px;
+    margin-top: 3%;
+    margin-left: 2.3%;
+}
+.title-card{
+    display: flex;
+    justify-content: center;
+}
+.title-card h3{
+    color: #3F51B5;
+}
+mat-card-content{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+}
+.line{
+    display: flex;
+    margin-bottom: 5px;
+}
+.nomeUsuario {
+    width: 420px;
+}
+.emailUsuario {
+    width: 350px;
+}
+
+.cpf {
+    width: 200px;
+    margin-left: 5% 
+}
+
+.checkboxStatusUsuario{ 
+    margin-left: 5%; 
+    margin-top: 15px;
+}
+.perfilUsuario{
+    width: 200px;
+    margin-left: 5%;
+}
+.clinicaUsuario{
+    width: 250px;
+    margin-left: 5%;
+}
+.senhaUsuario{
+    width: 200px;
+}
+.footer{
+    display: flex;
+    justify-content: flex-end;
+}

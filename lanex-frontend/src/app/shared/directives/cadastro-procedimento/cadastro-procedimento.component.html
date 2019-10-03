@@ -1,0 +1,81 @@
+<mat-card class="cardProcedimento">
+  <form [formGroup]="formularioCadastroProcedimento" >
+    <mat-card-header class="title-card">
+      <mat-card-title><h3>Cadastro de Procedimento</h3></mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div fxLayout="row">
+        <mat-form-field class="descricaoProcedimento">
+          <input matInput formControlName="descricao" placeholder="Descrição do procedimento" autocomplete="off">
+        </mat-form-field>
+        <mat-form-field class="valorDoParticular">
+          <input matInput formControlName="valor" placeholder="Valor do particular" autocomplete="off">
+        </mat-form-field>
+      </div>
+      <div fxLayout="row">
+        <mat-form-field class="tipoDeProcedimento">
+          <mat-label>Tipo de procedimento</mat-label>
+          <mat-select formControlName="tipo_procedimento">
+            <mat-option *ngFor="let tipoDeProcedimento of tipoProcedimentoSelect" [value]="tipoDeProcedimento.value">
+              {{tipoDeProcedimento.label}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-checkbox formControlName="status" class="procedimentoAtivo">
+          <small>
+            Procedimento ativo?</small>
+        </mat-checkbox>
+        <mat-checkbox formControlName="retorno" class="procedimentoAceitaRetorno">
+          <small>
+            Procedimento aceita retorno?
+          </small>
+        </mat-checkbox>
+        <mat-form-field class="diasDeRetorno">
+          <input matInput formControlName="dias_retorno" type="number" value="0" placeholder="Dias de retorno" autocomplete="off">
+        </mat-form-field>
+      </div>
+  
+      <div>
+        <mat-form-field class="textAreaOrientacoesObservacoes">
+          <textarea matInput formControlName="observacao" autocomplete="off" rows="10" cols="60" placeholder="Orientaçoes e observações"></textarea>
+        </mat-form-field>
+      </div>
+  
+      <div class="row">
+        <div class="column">
+          <div style="margin-left: 6.60%"> <small>Restringir a inclusao desse procedimento<br> no agendamento de
+              profissionais das
+              <br>seguintes
+              especialidades</small> <br>
+            <mat-form-field class="especialidades">
+              <mat-label>Especialidades</mat-label>
+              <mat-select class="especialidades" formControlName="restricao_especialidade" multiple>
+                <mat-option *ngFor="let especialidade of especialidadeSelect" [value]="especialidade.value">
+                  {{especialidade.label}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="column">
+          <div style="margin-left: 15%;"> <small>Restringir o agendamento desse procedimento<br> para os seguintes
+              profissionais <br>
+            </small>
+            <mat-form-field class="especialidades">
+              <mat-label>Profissionais</mat-label>
+              <mat-select class=" " formControlName="restricao_medico" multiple>
+                <mat-option *ngFor="let medico of medicoSelect" [value]="medico.value">
+                  {{medico.label}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions class="footer">
+        <button mat-stroked-button (click)="voltar()">Cancelar</button>
+        <button mat-raised-button color="primary" (click)="onSubmit()">{{actionEdit ? 'Editar' : 'Cadastrar'}} Procedimento</button>
+    </mat-card-actions>
+  </form>
+</mat-card>

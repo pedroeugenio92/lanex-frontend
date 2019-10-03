@@ -1,0 +1,47 @@
+<br>
+<mat-card>
+    <mat-card>
+        <mat-card-content>
+            <div>
+                <mat-form-field class="campoFilter">
+                    <input matInput (keyup)="applyFilter($event.target.value)" autocomplete="off"
+                        placeholder="{{headerObjectList.placeholderFilter}}">
+                </mat-form-field>
+            </div>
+        </mat-card-content>
+    </mat-card>
+    <br>
+    <mat-card>
+        <i title="{{headerObjectList.titleBtnAddd}}" (click)="addElementCall()" class="fas fa-plus-circle fa-2x add"></i>
+        <div class="titleCardTable">{{headerObjectList.titleCard}}</div>
+        <div class="subtitleCardTable">{{headerObjectList.subTitleCard}}</div>
+        <br>
+        <mat-card-content *ngIf="showTable">
+            <table mat-table [dataSource]="dataSource" matSort class="tabela" *ngIf="dataSourceList.length">
+
+                <ng-container *ngFor="let item of objectList.columns" >
+                    <ng-container class="tableRow" matColumnDef="{{item.name}}">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header class="tableHeader"><span *ngIf="item.type !== 'acao' ">{{item.title}}</span></th>
+                        <td mat-cell class="tableRow" *matCellDef="let row" >
+                            <span *ngIf="item.type !== 'acao' && item.type !== 'date' && item.type !== 'status'">{{ item.cell(row) }}</span>
+                            <span *ngIf="item.type === 'date'">{{ item.cell(row) | date: 'dd/MM/yyyy'}}</span>
+                            <span *ngIf="item.type === 'status'">{{ item.cell(row) == 1 ? 'Ativo' : 'Inativo'}}</span>
+                            <span *ngIf="item.type === 'acao' ">
+                                <i title="Editar" (click)="editElementCall(row)" class="fas fa-edit edit"></i>
+                                <i title="Excluir" (click)="openDialogDelete(row)" class="fas fa-trash delete"></i>      
+                            </span>
+                        </td>
+                    </ng-container>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="columnsShow"></tr>
+                <tr mat-row *matRowDef="let row; columns: columnsShow;"></tr>
+            </table>
+            <div *ngIf="!dataSourceList.length" class="tableRow row-no-records">Nenhum registro encontrado</div>
+            
+        </mat-card-content>
+        
+    </mat-card>
+</mat-card>
+
+

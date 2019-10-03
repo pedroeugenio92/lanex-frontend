@@ -1,0 +1,51 @@
+<br>
+<mat-card>
+
+  <div class="titleCardTable">Agendamentos</div>
+  <div class="subtitleCardTable">Histórico de Agendamentos</div>
+  <br>
+  <mat-card-content>
+
+
+    <div *ngFor="let agendamento of screenListAgendamento?.date">
+      <hr>
+
+      <div class="row col-12">
+        <mat-label class="col-1 label"> Exame </mat-label>
+        <p class="col-5">{{agendamento.procedimento}}</p>
+        <mat-label class="col-1 label"> Data </mat-label>
+        <p class="col-3">{{agendamento.data | date:'dd/MM/yyyy HH:mm'}}</p>
+      </div>
+
+      <div class="row col-12">
+        <mat-label class="col-1 label"> Paciente </mat-label>
+        <p class="col-5">{{getNameUser()}}</p>
+        <mat-label class="col-1 label"> Clínica </mat-label>
+        <p class="col-3">{{agendamento.clinica.nome}}</p>
+        <button *ngIf=true class="col-2 btn btn-outline-primary">Reagendar </button>
+      </div>
+
+      <div class="row col-12">
+        <mat-label class="col-1 label"> Médico </mat-label>
+        <p class="col-5">{{agendamento.medico}}</p>
+        <mat-label class="col-1 label"> Telefone </mat-label>
+        <p class="col-3">{{formatarTelefone(agendamento.clinica.telefone)}}</p>
+        <button *ngIf=false class="col-2 btn btn-outline-primary">Não Realizado </button>
+      </div>
+
+      <div class="row col-12">
+        <mat-label class="col-1 label"> Convênio </mat-label>
+        <p class="col-5">{{agendamento.convenio}}</p>
+        <mat-label class="col-1 label"> Endereço </mat-label>
+        <p class="col-3">{{formatarEnderecoClinica(agendamento.clinica)}}</p>
+        <button *ngIf=true class="col-2 btn btn-outline-primary">Cancelar </button>
+
+      </div>
+    </div>
+
+    
+    <hr>
+
+  </mat-card-content>
+
+</mat-card>

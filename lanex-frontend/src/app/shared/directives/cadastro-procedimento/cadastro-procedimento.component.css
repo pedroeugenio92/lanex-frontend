@@ -1,0 +1,44 @@
+.cardProcedimento{
+  width: 82%;
+  margin-top: 35px;
+margin-left: 8%
+}
+.textAreaOrientacoesObservacoes {
+  width: 473px;
+}
+
+.tipoDeProcedimento{
+  width: 361px;
+}
+.especialidades{
+width: 226px;
+}
+
+.procedimentoAtivo{
+  margin-left: 3%;
+}
+.procedimentoAceitaRetorno{
+  margin-left: 3%;
+}
+.diasDeRetorno {
+  margin-left: 4%;
+  width: 100px;
+}
+.valorDoParticular{
+  margin-left: 3%;
+  width: 13.5%
+}
+.descricaoProcedimento {
+  width: 41%
+}
+.title-card{
+  display: flex;
+  justify-content: center;
+}
+.title-card h3{
+  color: #3F51B5;
+}
+.footer{
+  display: flex;
+  justify-content: flex-end;
+}

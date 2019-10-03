@@ -1,0 +1,60 @@
+.cardPlanosDeSaude{
+  width: 20%
+}
+.cardGeral{
+  width:65%; 
+  margin-left: 16%;
+  margin-top:2.5%
+}
+.botaoVoltar{
+  cursor: pointer;
+  margin-left: 348px;
+  background-color: #dcdcdc;
+}
+.tamanhoCamposInput{
+  width: 100%;
+  max-width: 420px;
+}
+.iconeParaMostarPlanos{
+  cursor: pointer;
+  color:#3F51B5; 
+}
+.iconeParaEsconderPlanos{
+  cursor: pointer;
+  color:#f44336;
+}
+.tamanhoCampoBuscaPlano{
+  width: 415px
+}
+.titleCard{
+  display: flex;
+  justify-content: center;
+}
+.titleCard h3{
+  color: #3F51B5;
+}
+.title-plano-card{
+  display: flex;
+  justify-content: center;
+}
+.title-plano{
+  color: #3F51B5;
+}
+.mat-card-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.input-plano{
+  display: flex;
+  margin-top: 10px;
+}
+.input-plano mat-icon{
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.footer{
+  display: flex;
+  justify-content: flex-end;
+}

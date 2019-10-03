@@ -1,0 +1,62 @@
+<div class="list-card">
+  <mat-card class="card-element" (click)="selecionarMenu('/medico')">
+    <mat-card-header class="header-card">
+      <span><img src="./../../../../assets/img/person.png"></span>
+    </mat-card-header>
+    <mat-card-content class="content-card">
+        <h4>Médico</h4>
+        <h6>Cadastro</h6>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="card-element" (click)="selecionarMenu('/especialidade')">
+    <mat-card-header class="header-card">
+      <span><img src="./../../../../assets/img/person.png"></span>
+    </mat-card-header>
+    <mat-card-content class="content-card">
+        <h4>Especialidades</h4>
+        <h6>Cadastro</h6>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="card-element" (click)="selecionarMenu('/convenio')">
+    <mat-card-header class="header-card">
+      <span><img src="./../../../../assets/img/person.png"></span>
+    </mat-card-header>
+    <mat-card-content class="content-card">
+        <h4>Convênios</h4>
+        <h6>Cadastro</h6>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="card-element" (click)="selecionarMenu('/procedimento')">
+    <mat-card-header class="header-card">
+      <span><img src="./../../../../assets/img/person.png"></span>
+    </mat-card-header>
+    <mat-card-content class="content-card">
+        <h4>Procedimentos</h4>
+        <h6>Cadastro</h6>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="card-element" (click)="selecionarMenu('/agenda')">
+    <mat-card-header class="header-card">
+      <span><img src="./../../../../assets/img/person.png"></span>
+    </mat-card-header>
+    <mat-card-content class="content-card">
+        <h4>Agenda</h4>
+        <h6>Cadastro</h6>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="card-element" (click)="selecionarMenu('/clinica')" *ngIf="currentUser.id_perfil === environment.PERFIL_ADMINISTRADOR">
+    <mat-card-header class="header-card">
+      <span><img src="./../../../../assets/img/person.png"></span>
+    </mat-card-header>
+    <mat-card-content class="content-card">
+        <h4>Clínica</h4>
+        <h6>Cadastro</h6>
+    </mat-card-content>
+  </mat-card>
+  
+</div>

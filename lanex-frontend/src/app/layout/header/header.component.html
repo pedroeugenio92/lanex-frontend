@@ -1,0 +1,21 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row class="texto-menu">
+        <span (click)="selecionarMenu('/')">Lanex Saúde
+
+        </span>
+        <button mat-button (click)="selecionarMenu('/agendamento/cadastro')" style="margin-left: -45%;">Início</button>
+
+        <div class="div-menu">
+            <button mat-button (click)="selecionarMenu('/usuario')" *ngIf="currentUser && currentUser.usuario.id_perfil === environment.PERFIL_ADMINISTRADOR">Usuários</button>
+            <button mat-button (click)="selecionarMenu('/agendamento')">Agendamento</button>
+            <button mat-button (click)="selecionarMenu('/cadastro')">Cadastros</button>
+
+            <button mat-button>Relatórios</button>
+
+
+            <button mat-button>Perfil</button>
+
+            <button mat-button (click)="logout()" class="title-menu-sair">Sair</button>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>

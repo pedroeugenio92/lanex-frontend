@@ -1,0 +1,21 @@
+.botaoVoltar{cursor: pointer;
+  margin-left: 580px;
+  background-color: #dcdcdc;}
+  .cardPaciente{
+    width: 82%;
+    margin-top: 35px;
+  margin-left: 8%
+  }
+
+  hr {  width: 50%;
+    margin-left: -0.5%;}
+.botaoCadastro{margin-left:89%}
+.inputCpf{width: 15%}
+.inputNomeCompleto{width: 50%; margin-left: 2.1%}
+.inputEmail{width: 30%; margin-left: 2.1%}
+
+.inputTelefoneCelular{width: 18%; }
+
+.inputTelefoneFixo{width: 18%; margin-left: 2.1%}
+.datepicker{width: 18%;}
+.selectPlanoDeSaude {width: 25%; margin-left: 2.1%}

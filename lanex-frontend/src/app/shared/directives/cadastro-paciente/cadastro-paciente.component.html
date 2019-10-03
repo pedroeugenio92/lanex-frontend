@@ -1,0 +1,58 @@
+<mat-card class="cardPaciente">
+  <mat-card-header>
+    <mat-card-title>Cadastro de paciente
+      <button mat-raised-button class="botaoVoltar">Voltar</button></mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    Prencha os dados cadastrais do novo paciente
+    <hr>
+    <mat-form-field class="inputCpf">
+      <input matInput placeholder="CPF" autocomplete="off">
+    </mat-form-field>
+    <mat-form-field class="inputNomeCompleto">
+      <input matInput placeholder="Nome completo" autocomplete="off">
+    </mat-form-field>
+
+    <mat-form-field class="inputEmail">
+      <input matInput placeholder="Email" autocomplete="off">
+    </mat-form-field>
+
+    <mat-form-field class="datepicker">
+      <input matInput [matDatepicker]="picker" placeholder="Data de nascimento">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <label class=" " style="margin-left: 2.1%">Sexo: <mat-radio-group style="margin-left: 5px;"
+        aria-label="Select an option">
+        <mat-radio-button value="1" checked labelPosition="before">Masculino</mat-radio-button>
+        <mat-radio-button value="2" style="margin-left: 10px" labelPosition="before">Feminino
+        </mat-radio-button>
+      </mat-radio-group> </label>
+    <mat-form-field class="selectPlanoDeSaude">
+      <mat-label>Selecione o Plano</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let plano of planosArray" [value]="plano">
+          {{plano}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="inputTelefoneCelular">
+
+      <mat-icon matPrefix>smartphone</mat-icon>
+      <input matInput placeholder="Telefone celular" autocomplete="off">
+    </mat-form-field>
+
+    <mat-form-field class="inputTelefoneFixo">
+
+      <mat-icon matPrefix>phone</mat-icon>
+      <input matInput placeholder="Telefone fixo" autocomplete="off">
+    </mat-form-field>
+
+
+    <br>
+  </mat-card-content>
+  <mat-card-actions class="botaoCadastro">
+    <button mat-raised-button color="primary">Cadastrar</button>
+  </mat-card-actions>
+</mat-card>

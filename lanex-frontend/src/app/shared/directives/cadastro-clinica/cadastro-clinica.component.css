@@ -1,0 +1,60 @@
+.image-upload{
+  max-width: 136px;
+  max-height: 136px;
+}
+.image-upload > input {
+  visibility:hidden;
+  width:0;
+  height:0
+}
+.image-upload mat-icon{
+  margin-top: 10px;
+}
+.cardPrincipal{
+  width: 950px;
+  margin-top: 3%;
+  margin-left: 2.3%;
+}
+.cardImagemClinica{
+  width: 210px;
+}
+.cardImagemClinica mat-card-title{
+  text-align: center;
+}
+.cardImagemClinica mat-card-header{
+  display: flex;
+  justify-content: center;
+}
+.nomeClinica {width: 250px;}
+
+.cnpj {width: 200px; margin-left:2.5%;}
+.checkboxClinicaAtiva{ 
+  margin-left: 5%; 
+  margin-top: 5px;
+}
+.nomeClinica {width: 320px;}
+.razaoSocial{width:750px;}
+.cep {width: 100px}
+.logradouro{width: 400px; margin-left:2.5%;}
+.numero{width: 85px; margin-left:2.5%;}
+.unidadeFederal{width: 100px;}
+.complemento{width: 250px;margin-left:2.5%;}
+.cidade{width: 250px; margin-left:2.5%;}
+
+.telefone1{width: 135px }
+
+.telefone2{width: 135px; margin-left:2.5%;}
+
+.email{width: 320px; margin-left:2.5%;}
+
+.title-card{
+  display: flex;
+  justify-content: center;
+}
+.title-card h3{
+  color: #3F51B5;
+}
+.footer{
+  display: flex;
+  justify-content: flex-end;
+}

@@ -1,0 +1,75 @@
+<br>
+<mat-card class="col-12" id="printable">
+
+  <div class="title">
+
+    <div class="logo">
+      <p>
+
+        LOGO A
+      </p>
+    </div>
+    <div class="titleCardTable" style="    width: 85%; display: inline-block;">Agendamento / Encaminhamento</div>
+    <div class="logo">
+      <p>
+        LOGO B
+      </p>
+    </div>
+  </div>
+  <div class="titleCardTable">{{this.objConfirmacao.exame}}</div>
+
+
+
+  <mat-card-content class="col-12">
+
+    <label class="col-3"><strong>Paciente</strong></label>
+    <input class="col-8" matInput [(ngModel)]="objConfirmacao.paciente">
+    <hr>
+
+    <label class="col-3"><strong>Data e Hora</strong></label>
+    <input class="col-8" matInput [(ngModel)]="objConfirmacao.dataHora">
+    <hr>
+
+    <label class="col-3"><strong>Local</strong></label>
+    <input class="col-8" matInput [(ngModel)]="objConfirmacao.local">
+    <hr>
+
+    <label class="col-3"><strong>Plano de Saúde</strong></label>
+    <input class="col-8" matInput [(ngModel)]="objConfirmacao.planoSaude">
+    <hr>
+
+    <label class="col-3"><strong>Forma de Pagamento</strong></label>
+    <div class="col-8" style="display: inline-block;">
+      <input class="col-4" style="width: 30%" matInput [(ngModel)]="objConfirmacao.formaPagamento">
+      <input class="col-4" style="width: 30%; text-align: rigth;" matInput [(ngModel)]="objConfirmacao.valor">
+
+      <label *ngIf="objConfirmacao.isPago" class="col-3"><strong>Pago</strong></label>
+      <label *ngIf="!objConfirmacao.isPago" class="col-3"><strong>Não Pago</strong></label>
+
+    </div>
+    <hr>
+
+    <label class="col-3"><strong>Médico Executante</strong></label>
+    <input class="col-8" matInput [(ngModel)]="objConfirmacao.medico">
+    <hr>
+
+    <label class="col-3"><strong>Atendente</strong></label>
+    <input class="col-8" matInput [(ngModel)]="objConfirmacao.atendente">
+    <hr>
+
+    <label class="col-3"><strong>Preparo e Observação</strong></label>
+    <div class="div-obs">
+      <p class="obs" *ngFor="let obs of objConfirmacao.listaObs"> - {{obs}} </p>
+    </div>
+
+
+  </mat-card-content>
+  <div style="text-align: center">
+    <button mat-raised-button class="button-finalizar" (click)="print('')">Imprimir</button>
+  </div>
+
+
+
+
+
+</mat-card>

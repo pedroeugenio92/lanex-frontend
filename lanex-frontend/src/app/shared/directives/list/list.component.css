@@ -1,0 +1,51 @@
+.campoFilter {
+    width: 100%;
+}
+.edit{ 
+    color:white;
+    cursor:pointer;
+}
+.delete{
+    padding-left: 10.6%;
+    color:white;
+    cursor:pointer;
+}
+.add {
+    cursor:pointer;
+    color:#3F51B5;
+}
+.tabela {
+    width: 100%
+}
+.tableHeader {
+    font-size: 22px;
+}
+.titleCardTable{
+    text-align: center;
+    font-size: 23px;
+}
+.subtitleCardTable {
+    font-size:14px;
+    text-align: center;
+}
+.tableRow {
+    font-size: 17px;
+    background-color: rgba(63, 81, 181, 0.90);
+    color: white;
+}
+.row-no-records{
+    text-align: center;
+}
+
+.inputAdd {
+    width: 50%
+}
+.selectAtivo {
+    margin-left: 5%;
+    width: 20%;
+}
+.botaoAddProcedimento {
+    margin-left: 2%;
+}
+
+  

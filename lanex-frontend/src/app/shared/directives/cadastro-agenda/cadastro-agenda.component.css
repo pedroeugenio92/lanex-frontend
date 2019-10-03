@@ -1,0 +1,235 @@
+.titulo {
+  font-size: 25px;
+  color: #3F51B5;
+}
+.chkStatus{
+  font-size: 16px;
+}
+.botaoTitulo{
+  background-color: #3F51B5;
+  color: white;
+  width: 150px;
+  height: 40px;
+}
+.grid-container-titulo {
+  display: flex;
+  justify-content: space-between;
+}
+.grid-container-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 1px;
+  margin-bottom: 0px;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: 500px auto ;
+  grid-gap: 10px;
+  padding: 10px;
+}
+.grid-container-bloquear-horarios  {
+  background-color: #3F51B5;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+}
+.grid-container  {
+  /* background-color: #33B8EB; */
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  grid-gap: 10px;
+  padding: 10px;
+  border-bottom: 1px solid;
+  border-bottom-color: white;
+}
+
+.grid-container-bloquear-horarios-labels{
+  color: white;
+}
+.grid-container-bloquear-horarios-inputs {
+  background-color: #3F51B5;
+  color: white;
+  font-size: 18px;
+  display: flex;
+  flex-direction: row;
+}
+.input-horarios{
+  margin: 10px;
+  background-color: white;
+}
+.textAreaObsevacaoDaAgenda{
+    width: 530px;
+    /* border: 1px solid #8E8F8E;  */
+}
+.selecionarProcedimentos{
+  width: 40%;
+  margin-top: -1.5%;
+}
+.unidadeDeSaude{
+  width: 90%;
+}
+.profissional{
+  width: 90%;
+}
+.nomeDaAgenda{
+  width: 90%;
+}
+.dataDeValidade{
+  width: 40%;
+}
+.dataDeInicio{
+  margin-left:10%;
+  width: 40%;
+}
+.labelAdicionarProcedimentosAgenda{
+  color:#3F51B5;
+  font-size: 16px;
+}
+.labelDiasDeAtendimento{
+  color:#3F51B5;
+  font-size: 22px;
+}
+.labelHorarioDeAtendimento{
+  color:#3F51B5;
+  font-size: 18px;
+  margin-top: 8px;
+}
+.hrDiasDeAtendimento {
+background-color: #3F51B5;
+margin-top:-3px;
+/* height: 1px */
+}
+.hrHorarioDeAtendimento {
+  background-color: #3F51B5;
+  margin-top:-10px;
+  /* height: 1px */
+  }
+.example-margin {
+  margin: 0 30px;
+  font-size: 16px;
+}
+.mat-radio-button ~ .mat-radio-button {
+  margin-left: 16px;
+}
+
+.grid-container-columns{
+  width: 15%;
+  margin-left: 20px;
+  text-align: center;
+}
+.grid-container-columns-obs{
+  width: 40%;
+  margin-left: 20px;
+  text-align: center;  
+}
+
+.grid-container-columns-input{
+  width: 15%;
+  text-align: center;
+}
+.grid-container-columns-input-obs{
+  width: 40%;
+  text-align: center;
+}
+.input-column{
+  width: 90%;
+  background-color: white;
+  margin-bottom: 10px;
+}
+.input-column-obs{
+  width: 95%;
+  background-color: white;
+  margin-bottom: 10px;
+}
+.input-column input{
+  color: black;
+  text-align: center;
+}
+.input-column-obs input{
+  color: black;
+  text-align: center;
+}
+.input-de{
+  margin-left: 12px;
+}
+.input-column-field{
+  margin-left: 5px;
+}
+.divAgendaFixa{
+  margin-top: 1.6%;
+  display: flex;
+  flex-direction: column;
+}
+
+.divAgendaFixa span{
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: #3F51B5;
+
+}
+
+.divAgendaVariavel{
+  margin-top: 1.6%;
+  display: flex;
+  flex-direction: column
+}
+
+.divAgendaVariavel span{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: #3F51B5;
+}
+
+.line-agenda{
+  margin-left: 30px;
+  max-width: 500px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.line-agenda-variavel{
+  margin-left: 30px;
+  display: flex;
+}
+
+.title-bloqueio-agenda{
+  margin-left: 0px;
+  margin-top: 20px;
+}
+.title-bloqueio-agenda span{
+  color: #3F51B5;
+}
+
+.divAgendaFixa .input-horario{
+  width: 70px;
+}
+
+.hrAgendaFixa{
+  color: #3F51B5;
+}
+
+.card-dias-selecionados{
+  display: flex;
+  margin-top: 2.25%;
+  height: 135px;
+  background-color: rgba(128, 128, 128, 0.4);
+}
+
+.card-dia-selecionado{
+  width:100%;
+  margin-left: 25px;
+}
+
+.title-dia-selecionado{
+  color:black;
+  margin-top:42px;
+  min-width: 60px;
+}
+.input-dia-selecionado{
+  width:120px;
+  margin-left: 2.5%;
+  text-align: center;
+}
+
+

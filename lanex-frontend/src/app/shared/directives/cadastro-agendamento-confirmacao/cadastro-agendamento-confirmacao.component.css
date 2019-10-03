@@ -1,0 +1,95 @@
+.titleCardTable{
+    text-align: center;
+    font-size: 26px;
+    color: #0097de;
+}
+.subtitleCardTable {
+    font-size:17px;
+    text-align: center;
+    color: #7b8d93;
+}
+
+label{
+    color: #0097de;
+    margin-bottom: 0px;
+    font-size: 16px;
+}
+
+input{
+    width: 70%;
+    color: #7b8d93;
+    font-size: 16px;
+}
+
+hr{
+    
+    background-color:  #0097de;
+}
+
+mat-card-content{
+    margin-top: 40px;
+}
+
+.div-obs{
+    margin-left: 13px;
+    margin-top: 16px;
+}
+
+.obs{
+    color: #7b8d93;
+    font-size: 13px;
+    margin-bottom: 0px;
+
+}
+
+mat-card-actions{
+    text-align: center;
+}
+
+.button-finalizar{
+    background-color: #0097de;
+    color: white;
+}
+
+.button-alterar{
+    background-color: white;
+    color: #0097de;
+    border-color: #0097de;
+}
+
+.mat-card:not([class*=mat-elevation-z]){
+    box-shadow: 0px 0px !important;
+}
+
+.logo{
+    width: 70px;
+    height: 70px;
+    border-radius: 48px;
+    border: 2px solid #0097de;
+    color: #0097de;
+    display: inline-grid;
+
+}
+.logo p{
+    font-size: 12px;
+    margin-top: 23px;
+    text-align: center;
+
+}
+
+
+
+@media print {
+    
+    body * {
+      visibility: hidden;
+    }
+    #printable, #printable * {
+      visibility: visible;
+    }
+    #printable {
+      position: fixed;
+      left: 0;
+      top: 0;
+    }
+  }

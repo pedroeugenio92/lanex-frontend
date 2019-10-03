@@ -1,0 +1,91 @@
+<mat-card class="cardPrincipal">
+  <form [formGroup]="formularioCadastroClinica" >
+    <mat-card-header class="title-card">
+      <mat-card-title><h3>Cadastro de Clínica</h3></mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <br>
+      <br>
+      <label style="margin-bottom: 0px;"><strong>Informações gerais</strong></label>
+      <hr style="margin-top: 4px;">
+      <mat-form-field class="nomeClinica">
+        <input matInput formControlName="nome" placeholder="Nome" autocomplete="off">
+      </mat-form-field>
+  
+      <mat-form-field class="cnpj">
+        <input matInput formControlName="cnpj" placeholder="CNPJ" autocomplete="off">
+      </mat-form-field>
+      <mat-checkbox class="checkboxClinicaAtiva" formControlName="status" >Clínica ativo?
+      </mat-checkbox>
+      <br>
+      <br>
+      <label style="margin-bottom: 0px;"><strong>Endereço</strong></label>
+      <hr style="margin-top: 4px;">
+      <mat-form-field class="cep">
+        <input matInput formControlName="cep" placeholder="CEP" autocomplete="off">
+      </mat-form-field>
+      <mat-form-field class="logradouro">
+        <input matInput formControlName="logradouro" placeholder="Logradouro" autocomplete="off">
+      </mat-form-field>
+  
+      <mat-form-field class="numero">
+        <input matInput formControlName="numero_logradouro" placeholder="Número" autocomplete="off">
+      </mat-form-field>
+  
+      <mat-form-field class="complemento">
+        <input matInput formControlName="complemento" placeholder="Complemento" autocomplete="off">
+      </mat-form-field>
+      <mat-form-field class="unidadeFederal">
+        <mat-label>UF</mat-label>
+        <mat-select formControlName="uf" (selectionChange)="changeEstado($event)">
+          <mat-option *ngFor="let estado of estadoSelect" [value]="estado.value">
+            {{estado.label}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="cidade">
+        <mat-label>Cidade</mat-label>
+        <mat-select formControlName="cidade">
+          <mat-option *ngFor="let cidade of cidadeSelect" [value]="cidade.value">
+            {{cidade.label}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>
+      <br>
+      <label style="margin-bottom: 0px;"><strong>Contato</strong></label>
+      <hr style="margin-top: 4px;">
+      <mat-form-field class="telefone1">
+        <input matInput formControlName="telefone1" placeholder="Telefone 1" autocomplete="off">
+      </mat-form-field>
+      <mat-form-field class="telefone2">
+        <input matInput formControlName="telefone2" placeholder="Telefone 2" autocomplete="off">
+      </mat-form-field>
+      <mat-form-field class="email">
+        <input matInput formControlName="email" placeholder="email" autocomplete="off">
+      </mat-form-field>
+      <br>
+      <mat-card class="cardImagemClinica">
+        <mat-card-header>
+          <mat-card-title>
+            <div class="image-upload">
+              <label for="file-input" style="cursor:pointer">
+                <img [src]="imagemIcone" style="pointer-events: none" />
+              </label>
+              <input id="file-input" type="file" (change)="changeImage($event)" />
+            </div>
+            <mat-icon for="file-input" style="cursor:pointer;">cloud_upload</mat-icon>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+  
+        </mat-card-content>
+      </mat-card>
+    </mat-card-content>
+    <mat-card-actions class="footer">
+        <button mat-stroked-button (click)="voltar()">Cancelar</button>
+        <button mat-raised-button color="primary" (click)="onSubmit()">{{actionEdit ? 'Editar' : 'Cadastrar'}} Clínica</button>
+    </mat-card-actions>
+  </form>
+  
+</mat-card>

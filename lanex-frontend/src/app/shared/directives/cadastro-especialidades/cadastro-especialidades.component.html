@@ -1,0 +1,66 @@
+<mat-card class="cardGeral">
+  <form [formGroup]="formularioCadastroEspecialidade" >
+    <mat-card-header class="titleCard">
+      <mat-card-title><h3>Cadastro de Especialidade</h3></mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-form-field class="tamanhoCamposInput">
+        <input matInput formControlName="nome" placeholder="Nome da especialidade" autocomplete="off">
+        <mat-error *ngIf="formularioCadastroEspecialidade.get('nome').hasError('required')">
+          Campo obrigatório
+        </mat-error>
+        <mat-error *ngIf="formularioCadastroEspecialidade.get('nome').hasError('maxlength')">
+          Máximo de 250 caracteres
+        </mat-error>
+      </mat-form-field>
+      <div class="tamanhoCamposInput input-plano">
+        
+        <mat-form-field class="tamanhoCamposInput">
+          <mat-label>Selecione o Plano</mat-label>
+          <mat-select formControlName="conveniosCobertos" multiple (selectionChange)="showConvenios()">
+            <mat-option *ngFor="let convenio of convenioSelect " [value]="convenio.value">{{convenio.label}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="formularioCadastroEspecialidade.get('conveniosCobertos').hasError('required')">
+            Campo obrigatório
+          </mat-error>
+        </mat-form-field>
+  
+        <mat-icon class="iconeParaMostarPlanos" *ngIf="!convenioVisibilidade" matTooltip="Exibir planos cadastrados"
+          (click)="convenioVisibilidade = !convenioVisibilidade;">visibility
+        </mat-icon>
+        <mat-icon class="iconeParaEsconderPlanos" *ngIf="convenioVisibilidade"
+          (click)="convenioVisibilidade = !convenioVisibilidade;" matTooltip="Ocultar planos cadastrados">
+          visibility_off
+        </mat-icon>
+      </div>
+      <mat-card style="width: 65%;" *ngIf="convenioVisibilidade">
+        <mat-card-header class="title-plano-card">
+          <mat-card-title class="title-plano">Planos aceitos pela especialidade</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-form-field class="tamanhoCampoBuscaPlano">
+            <input matInput (keyup)="applyFilter($event.target.value)"
+              placeholder="Busque plano pelo nome ou registro ANS">
+          </mat-form-field>
+  
+          <table mat-table [dataSource]="dataSource" class="" style="width: 415px">
+  
+            <!-- Position Column -->
+            <ng-container matColumnDef="nome">
+              <th mat-header-cell *matHeaderCellDef> Plano</th>
+              <td mat-cell *matCellDef="let plano"> {{plano.label}} </td>
+            </ng-container>
+  
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+        </mat-card-content>
+      </mat-card>
+    </mat-card-content>
+    <mat-card-actions class="footer">
+      <button mat-stroked-button (click)="voltar()">Cancelar</button>
+      <button mat-raised-button color="primary" (click)="onSubmit()">{{actionEdit ? 'Editar' : 'Cadastrar'}} Especialidade</button>
+    </mat-card-actions>
+  </form>
+</mat-card>

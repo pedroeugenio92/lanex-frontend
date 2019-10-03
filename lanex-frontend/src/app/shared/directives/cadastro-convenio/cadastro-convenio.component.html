@@ -1,0 +1,49 @@
+<mat-card class="cardPrincipal">
+  <form [formGroup]="formularioCadastroConvenio" >
+    <mat-card-header class="title-card">
+      <mat-card-title><h3>Cadastro de Convênio</h3></mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-form-field class="nomeConvenio">
+        <input matInput formControlName="nome" placeholder="Nome do convênio" autocomplete="off">
+        <mat-error *ngIf="formularioCadastroConvenio.get('nome').hasError('required')">
+          Campo obrigatório
+        </mat-error>
+        <mat-error *ngIf="formularioCadastroConvenio.get('nome').hasError('maxlength')">
+          Máximo de 250 caracteres
+        </mat-error>
+      </mat-form-field>
+      <mat-checkbox class="checkBoxConvenioAtivo" formControlName="status" checked="true">Convênio ativo?
+      </mat-checkbox>
+      <mat-form-field class="razaoSocial">
+        <input matInput formControlName="razao_social" placeholder="Razão social" autocomplete="off">
+        <mat-error *ngIf="formularioCadastroConvenio.get('razao_social').hasError('required')">
+          Campo obrigatório
+        </mat-error>
+        <mat-error *ngIf="formularioCadastroConvenio.get('razao_social').hasError('maxlength')">
+          Máximo de 250 caracteres
+        </mat-error>
+      </mat-form-field>
+      <mat-card class="cardImagemConvenio">
+        <mat-card-header>
+          <mat-card-title>
+            <div class="image-upload">
+              <label for="file-input" style="cursor:pointer">
+                <img [src]="imagemIcone" style="pointer-events: none" />
+              </label>
+              <input id="file-input" type="file" (change)="changeImage($event)" />
+            </div>
+            <mat-icon for="file-input" style="cursor:pointer;">cloud_upload</mat-icon>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+  
+        </mat-card-content>
+      </mat-card>
+    </mat-card-content>
+    <mat-card-actions class="footer">
+      <button mat-stroked-button (click)="voltar()">Cancelar</button>
+      <button mat-raised-button color="primary" (click)="onSubmit()">{{actionEdit ? 'Editar' : 'Cadastrar'}} Convênio</button>
+    </mat-card-actions>
+  </form>
+</mat-card>

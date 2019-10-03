@@ -1,0 +1,11 @@
+.divBotoes{
+    flex-direction: row;
+    justify-content: space-between;
+}
+.divBotoes button{
+    margin-bottom: 5px;
+}
+
+.mat-dialog-content{
+    text-align: center;
+}

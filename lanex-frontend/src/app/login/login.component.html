@@ -1,0 +1,32 @@
+<div class="login-page-container">
+  <mat-card class="card-formulario-login">
+    <h2 class="title-login">Lanex Saude</h2>
+    <form [formGroup]="loginForm" (submit)="onSubmit()">
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Login" formControlName="email" autocomplete="on">
+        <mat-error *ngIf="loginForm.get('email').hasError('required')">
+          Campo obrigatório
+        </mat-error>
+        <mat-error *ngIf="loginForm.get('email').hasError('email') && !loginForm.get('email').hasError('required')">
+          Por favor, informe um email válido
+        </mat-error>
+      </mat-form-field>
+      <br>
+      <mat-form-field class="example-full-width">
+        <input matInput [type]="hide ? 'password' : 'text'" placeholder="Senha" autocomplete="off"
+          formControlName="senha">
+        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        <mat-error *ngIf="loginForm.get('senha').hasError('required')">
+          Campo obrigatório
+        </mat-error>
+      </mat-form-field>
+      <mat-error *ngIf="erro">Usuário não encontrado</mat-error>
+      <div class="div_btn_acessar">
+        <button mat-raised-button type="submit" color="primary" [disabled]="loading" class="btn-login">Login </button>
+      </div>
+      <div class="div_btn_loding">
+        <mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
+      </div>
+    </form>
+  </mat-card>
+</div>

@@ -1,0 +1,183 @@
+<br>
+<mat-card class="card">
+
+  <h2 class="titleCard">Cadastro de Médico</h2>
+  <hr>
+
+  <form [formGroup]="formularioCadastroMedico">
+    <div fxLayout="row">
+      <mat-form-field class="nome">
+        <input matInput placeholder="Nome" formControlName="nome" autocomplete="on" autocomplete="off" >
+        <mat-error *ngIf="formularioCadastroMedico.get('nome').hasError('required')">
+          Campo obrigatório
+        </mat-error>
+        <mat-error *ngIf="formularioCadastroMedico.get('nome').hasError('maxlength')">
+          Máximo de 250 caracteres
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="conselho">
+        <mat-label>Conselho</mat-label>
+        <mat-select formControlName="conselho" >
+          <mat-option *ngFor="let conselho of conselhoSelect" [value]="conselho.value">{{conselho.label}}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="formularioCadastroMedico.get('conselho').hasError('required')">
+          Campo obrigatório
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="num-registro">
+        <input matInput placeholder="Registro" formControlName="registro" autocomplete="off" >
+        <mat-error *ngIf="formularioCadastroMedico.get('registro').hasError('required')">
+          Campo obrigatório
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="uf">
+        <mat-label>UF</mat-label>
+        <mat-select formControlName="ufMedico" >
+          <mat-option *ngFor="let unidadeFederal of estadoSelect" [value]="unidadeFederal.value">{{unidadeFederal.label}}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="formularioCadastroMedico.get('ufMedico').hasError('required')">
+          Campo obrigatório
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="cpf">
+        <input matInput placeholder="CPF" formControlName="cpf" autocomplete="off" [textMask]="{mask: cpfMask}">
+        <mat-error *ngIf="formularioCadastroMedico.get('cpf').hasError('required')">
+          Campo obrigatório
+        </mat-error>
+        <mat-error
+          *ngIf="formularioCadastroMedico.get('cpf').hasError('pattern') && !formularioCadastroMedico.get('cpf').hasError('required')">
+          Por favor, informe um cpf válido
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <!--Primeira linha  acima -->
+    <div fxLayout="row">
+      <mat-form-field class="especialidades">
+        <mat-label>Especialidades</mat-label>
+        <mat-select formControlName="especialidades" multiple >
+          <mat-option *ngFor="let especialidade of especialidadeSelect" [value]="especialidade.value">{{especialidade.label}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="formularioCadastroMedico.get('especialidades').hasError('required')">
+          Campo obrigatório
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="telefone">
+        <input matInput placeholder="Telefone" formControlName="telefone" autocomplete="off" [textMask]="{mask: telefoneMask}">
+        <mat-error *ngIf="formularioCadastroMedico.get('telefone').hasError('required')">
+          Campo obrigatório
+        </mat-error>
+        <mat-error *ngIf="formularioCadastroMedico.get('telefone').hasError('maxlength')">
+          Máximo de 15 caracteres
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="dataDeNascimento">
+        <input matInput placeholder="Data de Nascimento" [textMask]="{mask: dateMask}"
+          formControlName="dataDeNascimento" autocomplete="off">
+        <mat-error *ngIf="formularioCadastroMedico.get('dataDeNascimento').hasError('required')">
+          Campo obrigatório
+        </mat-error>
+        <mat-error *ngIf="formularioCadastroMedico.get('dataDeNascimento').hasError('maxlength')">
+          Máximo de 10 caracteres
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="sexo">
+        <mat-label>Sexo</mat-label>
+        <mat-select formControlName="sexo" >
+          <mat-option *ngFor="let sexo of sexoArray" [value]="sexo.value">{{sexo.label}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="formularioCadastroMedico.get('sexo').hasError('required')">
+          Campo obrigatório
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <!-- linha 2 acima -->
+    <div fxLayout="row">
+      <mat-form-field class="funcao">
+        <input matInput placeholder="Função" formControlName="funcao" autocomplete="off">
+        <mat-error *ngIf="formularioCadastroMedico.get('funcao').hasError('required')">
+          Campo obrigatório
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="convenios">
+        <mat-label>Convênios Cobertos</mat-label>
+        <mat-select formControlName="conveniosCobertos" multiple >
+          <mat-option *ngFor="let convenio of convenioSelect " [value]="convenio.value">{{convenio.label}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="formularioCadastroMedico.get('conveniosCobertos').hasError('required')">
+          Campo obrigatório
+        </mat-error>
+      </mat-form-field>
+
+
+      <mat-form-field class="procedimentos">
+        <mat-label>Procedimentos Realizados</mat-label>
+        <mat-select formControlName="procedimentosRealizados" multiple >
+          <mat-option *ngFor="let procedimento of procedimentoSelect " [value]="procedimento.value">{{procedimento.label}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="formularioCadastroMedico.get('procedimentosRealizados').hasError('required')">
+          Campo obrigatório
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <!-- linha 3 acima -->
+    <div fxLayout="row">
+      <mat-form-field class="identidade">
+        <input matInput placeholder="Identidade" formControlName="identidade" autocomplete="off" >
+        <mat-error *ngIf="formularioCadastroMedico.get('identidade').hasError('required')">
+          Campo obrigatório
+        </mat-error>
+        <mat-error *ngIf="formularioCadastroMedico.get('identidade').hasError('pattern')">
+          Campo obrigatório
+        </mat-error>
+      </mat-form-field>
+
+
+      <mat-form-field class="orgaoEmissor">
+        <mat-label>Orgão Emissor</mat-label>
+        <mat-select formControlName="orgaoEmissor" >
+          <mat-option *ngFor="let orgao of orgaos " [value]="orgao">{{orgao}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="formularioCadastroMedico.get('orgaoEmissor').hasError('required')">
+          Campo obrigatório
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="ufOrgaoEmissor">
+        <mat-label>UF</mat-label>
+        <mat-select formControlName="ufOrgaoEmissorIdentidade" >
+          <mat-option *ngFor="let unidadeFederal of estadoSelect" [value]="unidadeFederal.value">{{unidadeFederal.label}}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="formularioCadastroMedico.get('ufOrgaoEmissorIdentidade').hasError('required')">
+          Campo obrigatório
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="email">
+        <input matInput placeholder="Email" formControlName="email" autocomplete="off" >
+        <mat-error *ngIf="formularioCadastroMedico.get('email').hasError('required')">
+          Campo obrigatório
+        </mat-error>
+        <mat-error *ngIf="formularioCadastroMedico.get('email').hasError('email')">
+          Por favor, informe um email válido
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </form>
+  <mat-card-actions class="footer">
+    <button mat-stroked-button (click)="voltar()">Cancelar</button>
+    <button mat-raised-button color="primary" (click)="onSubmit()">{{actionEdit ? 'Editar' : 'Cadastrar'}} Médico</button>
+  </mat-card-actions>
+</mat-card>

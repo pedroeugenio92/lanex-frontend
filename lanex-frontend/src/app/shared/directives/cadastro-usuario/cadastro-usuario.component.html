@@ -1,0 +1,68 @@
+<mat-card class="cardPrincipal">
+  <form [formGroup]="formularioCadastroUsuario" >
+    <mat-card-header class="title-card">
+      <mat-card-title><h3>Cadastro de Usuário</h3></mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="line">
+        <mat-form-field class="nomeUsuario">
+          <input matInput formControlName="nome" placeholder="Nome" autocomplete="off">
+          <mat-error *ngIf="formularioCadastroUsuario.get('nome').hasError('required')">
+            Campo obrigatório
+          </mat-error>
+        </mat-form-field>
+        
+        <mat-form-field class="cpf">
+          <input matInput formControlName="cpf" placeholder="CPF" autocomplete="off" [textMask]="{mask: cpfMask}">
+          <mat-error *ngIf="formularioCadastroUsuario.get('cpf').hasError('required')">
+              Campo obrigatório
+            </mat-error>
+        </mat-form-field>
+        <mat-checkbox class="checkboxStatusUsuario" formControlName="status" >Usuário ativo?
+        </mat-checkbox>
+      </div>
+      <div class="line">
+        <mat-form-field class="emailUsuario">
+          <input matInput formControlName="email" placeholder="Email" autocomplete="off">
+          <mat-error *ngIf="formularioCadastroUsuario.get('email').hasError('required')">
+            Campo obrigatório
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="perfilUsuario">
+          <mat-label>Perfil </mat-label>
+          <mat-select formControlName="perfil" >
+            <mat-option *ngFor="let perfil of perfilSelect" [value]="perfil.value">
+              {{perfil.label}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="formularioCadastroUsuario.get('perfil').hasError('required')">
+            Campo obrigatório
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="clinicaUsuario" *ngIf="formularioCadastroUsuario.get('perfil').value == environment.PERFIL_ATENDENTE">
+          <mat-label>Clínica </mat-label>
+          <mat-select formControlName="clinica" >
+            <mat-option *ngFor="let clinica of clinicaSelect" [value]="clinica.value">
+              {{clinica.label}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="formularioCadastroUsuario.get('clinica').hasError('required')">
+            Campo obrigatório
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="line">
+        <mat-form-field class="senhaUsuario">
+          <input matInput type="password" formControlName="senha" placeholder="Senha" autocomplete="off">
+          <mat-error *ngIf="formularioCadastroUsuario.get('senha').hasError('required')">
+            Campo obrigatório
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+    <mat-card-actions class="footer">
+      <button mat-stroked-button (click)="back()">Cancelar</button>
+      <button mat-raised-button color="primary" (click)="onSubmit()">{{actionEdit ? 'Editar' : 'Cadastrar'}} Usuário</button>
+    </mat-card-actions>
+  </form>
+</mat-card>

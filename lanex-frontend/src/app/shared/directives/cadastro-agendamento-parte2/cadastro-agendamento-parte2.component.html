@@ -1,0 +1,45 @@
+<br>
+<mat-card>
+
+  <div class="div-centro-medico col-12">
+    <p class="titleCardTable">
+      Selecione o profissional e horário
+    </p>
+
+    <mat-form-field class="col-4">
+      <mat-select class="select" [(value)]="turno">
+        <mat-option value="manha">Manhã</mat-option>
+        <mat-option value="tarde">Tarde</mat-option>
+        <mat-option value="noite">Noite</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+  </div>
+  <br>
+
+  <div>
+    <input class="input-date" [(ngModel)]="objAddAgendamento.data" disabled matInput [matDatepicker]>
+    <hr>
+
+    <div class="list-card">
+      <mat-card (click)="proximaEtapa(clinica)" class="card-element" *ngFor="let medico of listaMedico">
+
+        <mat-card-header class="header-card">
+          <span class="icon"></span>
+          <div>
+            <p class="name-medico">{{medico.name}}</p>
+            <p class="crm-medico">CRM: {{medico.crm}}</p>
+          </div>
+        </mat-card-header>
+        <mat-card-content class="content-card">
+            <div class="horario" value="horario" (click)="proximaEtapa(medico, horario)" *ngFor="let horario of medico.horario"><p>{{horario}}</p></div>
+        </mat-card-content>
+      </mat-card>
+
+    </div>
+
+  </div>
+
+
+
+</mat-card>
